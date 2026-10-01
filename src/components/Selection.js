@@ -5,8 +5,9 @@ export default function Selection({ applyColor }) {
   const [style, setStyle] = useState({ background: "" });
 
   const handleClick = () => {
-    const color = applyColor();
-    setStyle(color);
+    applyColor((color) => {
+      setStyle({ background: color.background });
+    });
   };
 
   return (
